@@ -8,7 +8,10 @@ class Airport(object):
 
 
     def instruct_to_land(self, plane):
-        self.planes.append(plane)
+        if len(self.planes) == self.capacity:
+            print("Airport is full")
+        else:
+            self.planes.append(plane)
 
     def instruct_to_take_off(self, plane):
         self.planes.remove(plane)

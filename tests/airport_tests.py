@@ -25,9 +25,11 @@ class TestAirport(unittest.TestCase):
     def test_initialize_with_capacity_equal_to_default_capacity(self):
         self.assertEqual(self.airport.capacity, 10)
 
-    # def test_to_set_max_capacity(self):
-    #     self.airport.set_capacity(10)
-    #     self.assertEqual(self.airport.capacity, 10)
+    def test_to_set_max_capacity(self):
+        self.airport.set_capacity(10)
+        self.assertEqual(self.airport.capacity, 10)
 
-    # def test_instruct_to_land_raises_error_when_airport_is_full(self):
-        # self.airport.
+    def test_instruct_to_land_raises_error_when_airport_is_full(self):
+        for i in range(10):
+            self.airport.instruct_to_land(self.plane)
+        self.assertRaises(RuntimeError, "Airport is full", self.airport.instruct_to_land(self.plane))
