@@ -8,8 +8,8 @@ class Airport(object):
 
 
     def instruct_to_land(self, plane):
-        if len(self.planes) == self.capacity:
-            print("Airport is full")
+        if self.at_full_capacity == True:
+            raise Exception("Airport is full")
         else:
             self.planes.append(plane)
 
@@ -18,3 +18,10 @@ class Airport(object):
 
     def set_capacity(self, value):
         self.capacity = value
+
+
+    def at_full_capacity(self):
+        if len(self.planes) == self.capacity:
+            return True
+        else:
+            return False
